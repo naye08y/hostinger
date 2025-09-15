@@ -373,7 +373,7 @@ require 'confi/database.php';
       ?>
       <div class="con">
         <header class="head-form">
-          <h2>Inicia Sesión</h2>
+          <h2>Inicia Sesión NAYES</h2>
           <p>Ingresa tu correo y contraseña para acceder </p>
         </header>
         <div class="field-set">
