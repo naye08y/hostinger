@@ -1,0 +1,53 @@
+
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+.div2{
+    text-align: center;
+}
+h1 {
+   display: inline-block;
+    position: relative;
+    color: #CC6645;
+    font-size: 45px;
+    font-family: 'Playfair Display', serif;
+}
+h1::after, h1::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    background-color: currentColor;
+    top: 0.7em;
+   
+}
+
+h1::before{
+    left: -140px;
+}
+h1::after{
+    right: -140px;
+}
+@media (max-height: 750px){
+    
+    h1::before{
+        left: -100px;
+        width: 100px;
+    }
+    h1::after{
+        right: -100px;
+        width: 100px;
+    }
+   
+}
+@media (max-height: 560px){
+    
+    h1::before{
+        left: -80px;
+        width: 70px;
+    }
+    h1::after{
+        right: -80px;
+        width: 70px;
+    }
+   
+}
+

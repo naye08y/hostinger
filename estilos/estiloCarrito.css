@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: white !important;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-wrapper {
+  margin: 4rem auto;
+  width: 90%;
+  max-width: 1000px;
+  background: #f6fff8;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 25px rgba(40, 150, 90, 0.25);
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.cart-header {
+  background: linear-gradient(135deg, #178A5B, #2EA970);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.cart-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+
+.cart-table {
+  width: 100%;
+  background: #f6fff8;
+  /* Quitar min-width para que se adapte y no genere scroll */
+  border-collapse: collapse;
+  animation: slideUp 1s ease;
+}
+
+.cart-table thead {
+  background: #d7f5e3;
+  color: #135836;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.cart-table input[type="number"] {
+  width: 60px;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.btn-remove {
+  background-color: #178A5B; /* Verde oscuro */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(23, 138, 91, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+}
+
+.btn-remove svg {
+  fill: white; /* Para que el ícono tenga color blanco */
+}
+
+.btn-remove:hover {
+  background-color: #116743; /* Verde más oscuro */
+  transform: scale(1.05);
+}
+
+.total-row {
+  background: #f0fff5;
+  font-weight: bold;
+}
+
+.total-value {
+  font-size: 1.3rem;
+  color: #0a5c3a;
+}
+
+.empty-cart {
+  text-align: center;
+  font-weight: bold;
+  color: #888;
+  padding: 2rem;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: #e6faef;
+  border-top: 1px solid #b5e6c4;
+  gap: 1rem;
+}
+
+.btn-finish {
+  background-color: #178A5B;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 0.7rem;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  animation: pulse 2s infinite;
+  box-shadow: 0 4px 10px rgba(23, 138, 91, 0.4);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-finish:hover {
+  background-color: #116743;
+  transform: scale(1.05);
+}
+
+.btn-back {
+  color: #178A5B;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.btn-back .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.btn-back:hover {
+  color: #0e5032;
+}
+
+.btn-back:hover .arrow {
+  transform: translateX(-4px);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(23, 138, 91, 0.5);
+  }
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(23, 138, 91, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(23, 138, 91, 0);
+  }
+}
+
+/* MEDIA QUERIES PARA RESPONSIVE SIN SCROLL */
+
+@media (max-width: 768px) {
+  .cart-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-finish,
+  .btn-back {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart-header h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Aquí convertimos la tabla en bloques para evitar scroll */
+
+  .cart-table, 
+  .cart-table thead, 
+  .cart-table tbody, 
+  .cart-table th, 
+  .cart-table td, 
+  .cart-table tr { 
+    display: block; 
+  }
+
+  .cart-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .cart-table tr {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .cart-table td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .cart-table td::before {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 45%;
+    padding-right: 1rem;
+    white-space: nowrap;
+    font-weight: 600;
+    color: #135836;
+  }
+
+  /* Etiquetas de cada celda */
+
+  .cart-table td:nth-of-type(1)::before { content: "Producto"; }
+  .cart-table td:nth-of-type(2)::before { content: "Precio"; }
+  .cart-table td:nth-of-type(3)::before { content: "Cantidad"; }
+  .cart-table td:nth-of-type(4)::before { content: "Subtotal"; }
+  .cart-table td:nth-of-type(5)::before { content: ""; }
+  
+  .total-value {
+    font-size: 1.1rem;
+  }
+
+  .btn-remove {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #158f58, #0e5e3d);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-back::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: rgba(255, 255, 255, 0.08);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.btn-back:hover::before {
+  left: 100%;
+}
+
+.btn-back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-back .arrow {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  z-index: 1;
+}
